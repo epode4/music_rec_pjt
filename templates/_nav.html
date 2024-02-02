@@ -1,0 +1,63 @@
+{% load static %}
+
+{% comment %} <nav class="navbar navbar-vertical-left"> {% endcomment %}
+
+    {% comment %} <style>
+      body { {% endcomment %}
+          {% comment %} background-image: url("/static/images/back.png"); {% endcomment %}
+          {% comment %} color: white;
+          background-color: #12192c;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center -40px;
+      }
+    </style> {% endcomment %}
+    
+
+
+  <div class="l-navbar" id="navbar">
+      <nav class="nav">
+          <div>
+              <div class="nav__brand">
+                  <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                  <a href="{% url 'music_rec_app:index' %}" class="nav__logo">4.5Hz</a>
+              </div>         
+              <div class="nav__list">
+                  <a href="{%url 'music_rec_app:main'%}" class="nav__link {% if request.path == '/main/' %}active{% endif %}">
+                    {% comment %} <i class="bi bi-house-fill" style="size:30;"> 홈</i> {% endcomment %}
+                    <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                    <span class="nav_name">추천 음악</span>
+                  </a>
+
+                  <a href="{%url 'music_rec_app:music'%}" class="nav__link {% if request.path == '/music/' %}active{% endif %}"> 
+                      {% comment %} <i class="bi bi-music-note-beamed">음악</i> {% endcomment %}
+                      <ion-icon name="musical-notes-outline" class="nav__icon"></ion-icon>                      
+                      <span class="nav_name">음악서랍</span>
+                  </a>
+
+                  <a href="{%url 'static_app:static_home'%}" class="nav__link {% if request.path == '/total_static/' %}active{% endif %}">
+                      {% comment %} <i class="bi bi-globe-asia-australia">정보</i> {% endcomment %}
+                      <ion-icon name="earth-outline" class="nav__icon"></ion-icon>                    
+                      <span class="nav_name">모두의 음악기록</span>
+                  </a>
+
+                  <a href="{%url 'static_app:personal_static'%}" class="nav__link {% if request.path == '/total_static/personal/' %}active{% endif %}">
+                      {% comment %} <i class="bi bi-person-fill">사용자</i> {% endcomment %}
+                      <ion-icon name="person-outline" class="nav__icon"></ion-icon>                      
+                      <span class="nav_name">나만의 음악기록</span>
+                  </a>
+
+              </div>
+              <a href="{% url 'accounts:logout' %}" class="nav__link">
+                  <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                  <span class="nav_name">Log out</span>
+              </a>
+          </div>
+      </nav>
+  </div>
+
+  
+  {% comment %} {% url 'accounts:logout' %}?next={% url 'music_rec_app:index' %} {% endcomment %}
+{% comment %} </nav> {% endcomment %}
+
+
